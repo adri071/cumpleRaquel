@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú Horizontal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div id="custom-alert" class="custom-alert">
+        <div class="alert-box">
+            <h2 id="alert-title">Alerta</h2>
+            <p id="alert-message">Esto es una alerta personalizada.</p>
+            <button id="alert-button" onclick="cerrarAlerta()">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="menu" class="menu-container">
+        <h1 class="menu-title">¡Felices 24 años mi amor!</h1>
+        <div class="menu">
+            <button onclick="window.location.href='paginaInicial.html'">Inicio</button>
+            <button onclick="window.location.href='historia.html'">Nuestra historia</button>
+            <button onclick="window.location.href='regalos.html'">Regalos</button>
+            <button onclick="window.location.href='index.html'">Cerrar sesión</button>
+        </div>
+    </div>
+
+    <div class="seccion">
+        <h2>Regalos de tu 24 cumpleaños</h2>
+        <p>En esta pagina podras descubrir los distintos regalos que te he preparado por tu 24 cumpleaños,
+           pero no todo va a ser tan facil jejejej. <br> para que puedas verlos primero deberas descubrirlos.
+           Asique vamos a comenzar, destacar que se han divido estos regalos en dos catagorias distintas, <br> lo primero 
+           que deberas hacer es descubrir estas dos categorias.
+        </p>
+
+        <div class="regalos">
+            <div id="div-codigo">
+                <h3>Introduce el código secreto de 4 números </h3>
+                <input type="number" id="codigo" maxlength="4" placeholder="----" />
+                <button onclick="verificarCodigo()">Comprobar</button>
+                <button onclick="alerta('Pista del codigo secreto', 
+                                        'Desde mi punto de vista, el mejor dia mi vida y espero que el tuyo tambien', 
+                                        'Cerrar')">Pista codigo</button>
+                <button onclick="alerta('Otra pista del codigo', 
+                                        '4 cifras unicamente', 
+                                        'Cerrar')">Segunda pista</button>
+            </div>
+            <div id="botones-ocultos" class="botones-ocultos">
+                <button id="botonVenecia" class="boton-oculto" onclick="mostrarDiv('regaloVenecia')">Regalos venecia</button>
+                <button id="botonNormal" class="boton-oculto" onclick="mostrarDiv('regaloNormal')">Regalos normales</button>
+                <button id="botonSalir" class="boton-oculto-salir" onclick="salir()">Salir</button>
+            </div>
+        </div>
+
+        <div id="regaloVenecia" class="div-regalos">
+            <h3>Regalos de venecia</h3>
+            <p>Esta seccion nunca iba a existir en verdad pero debido a mi reciente viaje ludico a la ciudad italiana
+                de Venecia y a que en dicho viaje no he podidio dejar de pensar en ti y lo que me hubiera gustado haber podido
+                hacer ese viaje contigo tendras unos cuntos regalos/recuerdos que te he traido jejeje. <br> Dicho esto vamos a comenzar,
+                como observas en la siguiente lista ahi un total de 4 regalos, pero no todo va a ser tan facil. Para poder 
+                recibirlos tendras que pasar/adivinar una serie de pruebas.
+            </p>
+            <div class="botones-regalos">
+                <button id="botonRegalo1" class="boton-regalos" onclick="mostrarDiv2('regalo1')"> Regalo 1</button>
+                <button id="botonRegalo2" class="boton-regalos" onclick="mostrarDiv2('regalo2')"> Regalo 2</button>
+                <button id="botonRegalo3" class="boton-regalos" onclick="mostrarDiv2('regalo3')"> Regalo 3</button>
+                <button id="botonRegalo4" class="boton-regalos" onclick="mostrarDiv2('regalo4')"> Regalo 4</button>
+            </div>
+            <div id="regalo1" class="div-regalo">
+                <h4>Regalo 1</h4>
+                <div id="adivinanza1" class="adivinanza">
+                    <p>No es Venecia pero puedes llegar en Vaporetto</p>
+                    <input type="text" id="respuesta1" placeholder="Escribe tu respuesta...">
+                    <button onclick="comprobarAdivinanza('murano', 'respuesta1', 'solucion1')">Comprobar</button>
+                    <button onclick="alerta('Pista','Se trata de la segunda isla más famosa de la bahía de Venecia','Cerrar')">Pista</button>
+                    <p id="solucion1" class="solucciones"  hidden>Murano</p>
+                </div>
+                
+                <div id="adivinanza2" class="adivinanza">
+                    <p>Transparente como el agua, pero no se puede beber</p>
+                    <input type="text" id="respuesta2" placeholder="Escribe tu respuesta...">
+                    <button onclick="comprobarAdivinanza('cristal', 'respuesta2', 'solucion2')">Comprobar</button>
+                    <button onclick="alerta('Pista','Utilizado en el embotellamiento de líquidos','Cerrar')">Pista</button>
+                    <p id="solucion2" class="solucciones"  hidden>Cristal</p>
+                </div>
+            </div>
+
+            <div id="regalo2" class="div-regalo">
+                <h4>Regalo 2</h4>
+                <div id="aviso1" class="div-aviso">
+                    <h4>Aviso importante</h4>
+                    <p>Para poder responder a este debes haber acertado y recibido ya el regalo 1.
+                        <br> Esto se debe a que esas respuestas te sirven como pistas en esta adivinanza.
+                    </p>
+                </div>
+                <div id="adivinanza3" class="adivinanza">
+                    <p>Pequeña y redonda te sigue a todas partes sin decir palabra.</p>
+                    <input type="text" id="respuesta3" placeholder="Escribe tu respuesta...">
+                    <button onclick="comprobarAdivinanza('pulsera', 'respuesta3', 'solucion3')">Comprobar</button>
+                    <button onclick="alerta('Pista','No es la bandera de españa pero esta bien','Cerrar')">Pista</button>
+                    <p id="solucion3" class="solucciones"  hidden>pulsera</p>
+                </div>
+
+            </div>
+
+            <div id="regalo3" class="div-regalo">
+                <h4>Regalo 3</h4>
+                <div id="aviso2" class="div-aviso">
+                    <h4>Aviso importante</h4>
+                    <p>Para poder responder a este debes haber acertado y recibido ya los regalos 1 y 2.
+                        <br> Esto se debe a que esas respuestas te sirven como pistas en esta adivinanza.
+                    </p>
+                </div>
+                <div id="adivinanza4" class="adivinanza">
+                    <p>Van de paseo contigo uno a cada lado. Nunca hablan, pero siempre brillan (como montoya)</p>
+                    <input type="text" id="respuesta4" placeholder="Escribe tu respuesta...">
+                    <button onclick="comprobarAdivinanza('pendientes', 'respuesta4', 'solucion4')">Comprobar</button>
+                    <button onclick="alerta('Pista','Toda pulsera necesita su acompañamiento','Cerrar')">Pista</button>
+                    <p id="solucion4" class="solucciones" hidden>pendientes</p>
+                </div>
+
+            </div>
+
+            <div id="regalo4" class="div-regalo">
+                <h4>Regalo 4</h4>
+                <div id="adivinanza5" class="adivinanza">
+                    <p>No soy rostro, pero lo aparento. Oculto, invento.</p>
+                    <input type="text" id="respuesta5" placeholder="Escribe tu respuesta...">
+                    <button onclick="comprobarAdivinanza('mascara', 'respuesta5', 'solucion5')">Comprobar</button>
+                    <button onclick="alerta('Pista','Unico regalo que tiene que ver con venecia y no, no es una gondola','Cerrar')">Pista</button>
+                    <button onclick="alerta('Pista 2','Casi todos los superheroes usan una','Cerrar')">Pista 2</button>
+                    <p id="solucion5" class="solucciones"  hidden>mascara</p>
+                </div>
+                <div id="adivinanza6" class="adivinanza">
+                    <p>Una vez al año y aunque la gente le gusta por disfracerse yo lo hago por salir de fiesta</p>
+                    <input type="text" id="respuesta6" placeholder="Escribe tu respuesta...">
+                    <button onclick="comprobarAdivinanza('carnaval', 'respuesta6', 'solucion6')">Comprobar</button>
+                    <button onclick="alerta('Pista','Recuerdo 21','Cerrar')">Pista</button>
+                    <p id="solucion6" class="solucciones" hidden>carnaval</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="regaloNormal" class="div-regalos">
+            <h3>Regalos Normales</h3>
+            <p>
+                Aqui si, estan tus 3 regalos de cumpleaños. Estos son los que pense desde el primer momento antes de ir a 
+                a venecia. <br> <br> Estos no tienen adivinanzas para verlos por lo que supongo que iremos mas rapido (o no). 
+            </p>
+            <div class="botones-regalos">
+                <button id="botonRegalo1" class="boton-regalos" onclick="mostrarDiv3('regalo1Normal')"> Regalo 1</button>
+                <button id="botonRegalo2" class="boton-regalos" onclick="mostrarDiv3('regalo2Normal')"> Regalo 2</button>
+                <button id="botonRegalo3" class="boton-regalos" onclick="mostrarDiv3('regalo3Normal')"> Regalo 3</button>
+            </div>
+            <div id="regalo1Normal" class="div-regaloNormal">
+                <!--chocolate-->
+                <h4>Regalo 1</h4>
+                <div class="tarjeta">
+                    <div class="contenido">
+                      <div class="frontal">
+                        <img src="img/regalos/chocolate.png" alt="Foto 1" />
+                        <p>Primer regalo</p>
+                      </div>
+                      <div class="trasera">
+                        <p>Esto deberia dejar de considerarlo como un regalo, porque es mas repetitivo que la morcilla jajajaja. <br>
+                            Pero bueno lo puedo utilizar una vez mas yo creo (minimo), disfrutalo mi amor jejeje. 
+                        </p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="regalo2Normal" class="div-regaloNormal">
+                <!--fotos-->
+                <h4>Regalo 2</h4>
+                <div id="aviso2" class="div-aviso">
+                    <h4>Aviso importante</h4>
+                    <p>En esta pestaña la ultima tarjeta que podras girar es la de Regalo</p>
+                </div>
+                <div class="galeria-regalo2">
+                    <div class="tarjeta">
+                      <div class="contenido">
+                        <div class="frontal">
+                          <img src="img/regalos/sobre.png" alt="Foto 1" />
+                          <p>Sobres</p>
+                        </div>
+                        <div class="trasera">
+                          <p>
+                            Esta parte del regalo tendras que ganartelo, ya que se compone de un total de 5 sobres distintos.
+                            <br> <br> Pero obviamente no te los pienso dar por tu cara bonita (y eso que lo es y mucho) si no que 
+                            tendras que ganartelo jugando a un juego al cual echaremos 10 partidas y por cada una que me ganes te dare 
+                            un sobre (si, si no ganas mas de 5 partidas te quedaras sin recibir un sobre y me lo quedare yo jejeje) <br> <br> <br> ¿Preparada? 
+                          </p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="tarjeta">
+                        <div class="contenido">
+                          <div class="frontal">
+                            <img src="img/regalos/regalo.png" alt="Foto 1" />
+                            <p>Regalo</p>
+                          </div>
+                          <div class="trasera">
+                            <p>Ahora que ya hemos jugado y tines los sobres que has ganado (espero que muchos) es el momento de 
+                                de que los abres y veas lo que hay en ellos, una vez hayas visto que es lo que contienen y las dudas 
+                                te inunde la cabeza podras recibir el verdadero regalo, el cual espero que te guste mucho jejejje  
+                            </p>
+                          </div>
+                          </div>
+                      </div>
+                </div>
+
+            </div>
+
+            <div id="regalo3Normal" class="div-regaloNormal">
+                <!--spa-->
+                <h4>Regalo 3</h4>
+                <p id="regaloPrinciapl">
+                    Este regalo se compone de un regalo principal y dos acompañantes a este regalo, pero siento decirte que 
+                    este regalo no es para ti solo sino que vas a tener la desgracia de tener que compartir el regalo conmigo jejje.
+                </p>
+                <div id="aviso4" class="div-aviso">
+                    <h4>Aviso importante</h4>
+                    <p>En esta pestaña la ultima tarjeta que podras girar es la de Regalo</p>
+                </div>
+                <div class="galeria">
+                    <div class="tarjeta">
+                      <div class="contenido">
+                        <div class="frontal">
+                          <img src="img/regalos/cerveza.png" alt="Foto 1" />
+                          <p>Acompañante regalo 1</p>
+                        </div>
+                        <div class="trasera">
+                          <p>No hay mejor manera para terminar un dia tan especial como espero que sea que terminar tomando unas
+                             cervezas (tu tinto) o incluso copas si te vienes arriba. Ademas prometo pagar, pero solo la primera 
+                             tampoco te vengas arriba que sigo siendo mas pobre que tu jejejej.   
+                          </p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="tarjeta">
+                        <div class="contenido">
+                          <div class="frontal">
+                            <img src="img/regalos/cesta.png" alt="Foto 1" />
+                            <p>Regalo</p>
+                          </div>
+                          <div class="trasera">
+                            <p> De verdad te pensabas que el regalo principal iba a estar escrito tras una tarjeta que podrias girar en 
+                                cualquier momento sin seguir mis indicaciones? pues obviamente no jejejej. <br> <br> Si quieres saber lo que 
+                                es unicamente debes pedirme el ultimo sobre rojo de los muchos que tenia y podras verlo. <br> <br> Antes de nada,
+                                quieres una pista? prepara un gorro jejeje.
+                            </p>
+                          </div>
+                          </div>
+                    </div>
+                    <div class="tarjeta">
+                        <div class="contenido">
+                          <div class="frontal">
+                            <img src="img/regalos/sobre.png" alt="Foto 1" />
+                            <p>Acompañante regalo 2</p>
+                          </div>
+                          <div class="trasera">
+                            <p>Antes de seguir leyendo te pido que veas el recuerdo 8 y me digas si recuerdas ese dia, hasta que no lo hagas 
+                                no sigas leyendo jjejje. <br> <br> ¿Ya lo sabes? que no se puede hacer trampas te recuerdo jjeje <br> <br>
+                                Bueno pues sabiendo que dia es ya te haras una idea de lo que puede ser pero por si no lo haces, te propongo
+                                comprar comida o unas pipas y ir al rio (o un sitio mas privado) a pasar la tarde juntos y ver el atardecer 
+                                mientras nos abrazamos. <br> <br>  ¿Acepats? 
+                            </p>
+                          </div>
+                          </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+<footer class="footer">
+    <div class="footer-content">
+        <p>¡Te quiero mucho mi amor!</p>
+      <p>Pagina web creada por Adrian Gonzalez</p>
+      <p>&copy; 2025 Todos los derechos reservados</p>
+      <p>Villoria, Salamanca. 37339</p>
+    </div>
+</footer>
+</html>

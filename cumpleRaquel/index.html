@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Felices 24!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="custom-alert" class="custom-alert">
+        <div class="alert-box">
+            <h2 id="alert-title">Alerta</h2>
+            <p id="alert-message">Esto es una alerta personalizada.</p>
+            <button id="alert-button" onclick="cerrarAlerta()">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="index" class="index-container">
+        <h1>¡Felices 24 años mi amor!</h1>
+        <!--Poner aqui descripcion de que se hara en la pagina web-->
+        <button onclick="comenzar()">Comenzar</button>
+    </div>
+
+  <div id="login" class="login-container" style="display: none;">
+    <h1>¡Felices 24 años mi amor!</h1>
+    <h2>Antes de comenzar deberas identificarte :)</h2>
+    <input type="text" id="username" placeholder="Usuario" />
+    <input type="password" id="password" placeholder="Contraseña" />
+    <button onclick="login()">Entrar</button>
+    <button onclick="pistasLogin()">Pista</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
